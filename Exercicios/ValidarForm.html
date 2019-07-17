@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <form action="#" method="POST">
+            <label for="usuario">Usuario: </label>
+            <input type="text" id="usuario" name="usuario">
+            <br/>
+            <label for="senha">Senha: </label>
+            <input type="password" id="senha" name="senha">
+            <br/>
+            <button type="submit" id="btnSubmit">Enviar</button>
+        </form>
+
+        <script>
+
+            (function(){
+                'use strict';
+                
+                var $form = document.querySelector("form");
+                var $inUsuario = document.getElementById("usuario");
+                var $inSenha = document.getElementById("senha");
+                var $btnSubmit = document.getElementById("btnSubmit");
+
+                /*$btnSubmit.addEventListener("click", function(){
+                    alert("clicou no botão");
+
+                    if(!$inUsuario.value){
+                        alert("Campo Usuário não pode ser Vazio");
+                    }else if(!$inSenha.value){
+                        alert("Campo Senha não pode ser Vazio");
+                    }else{
+
+                    }
+                });
+            })();*/
+
+                $form.addEventListener("submit", function(e){
+                    alert("clicou no botão");
+
+                    if(!$inUsuario.value){
+                        alert("Campo Usuário não pode ser Vazio");
+                        //impede o envio
+                        e.preventDefault();
+                    }else if(!$inSenha.value){
+                        alert("Campo Senha não pode ser Vazio");
+                        e.preventDefault();
+                    }else{
+
+                    }
+                });
+            })();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <div>
+            <textarea id="mensagem" rows="4" cols="25" maxlength="100"></textarea>
+            <p id="cont" style="display: none;"></p>
+        </div>
+        <script>
+            (function(){
+                'use strict';
+                
+                var $pCont = document.getElementById("cont");
+                var $areaMensagem = document.getElementById("mensagem");
+                var maximo = $areaMensagem.maxLength;
+                
+                function HabilitarCheckLength(){
+                    $pCont.style.display = "block";
+                }
+
+                function CaracteresSobrando(n){
+                    $pCont.textContent = "restam "+(n)+" caracteres.";
+                }
+
+                HabilitarCheckLength();
+                CaracteresSobrando(maximo);
+
+                $areaMensagem.addEventListener('input', checkLength);
+                function checkLength(e){
+                    var restantes = parseInt(maximo) - parseInt(this.value.length);
+                    CaracteresSobrando(restantes);
+                }
+                
+
+            })();
+        </script>
+    </body>
+</html>

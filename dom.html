@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <main id="principal">
+            <h1>Titulo h1</h1>
+            <p id="paragrafo_principal">Texto bem grande mesmo</p>
+            <p class="paragrafos">Texto bem grande mesmo</p>
+            <p class="paragrafos">Texto bem grande mesmo</p>
+        </main>
+        <section id=seccao>
+            <h2>Titulo h2</h2>
+            <p id="paragrafo_secundario">Texto bem grande mesmo</p>
+            <p class="paragrafos">Texto bem grande mesmo</p>
+            <p class="paragrafos">Texto bem grande mesmo</p>
+        </section>
+        <section id=seccao>
+            <h3>Relógio</h3>
+            <p id="clock">Tempo</p>
+        </section>
+
+        <script>
+            document.querySelector("h1").textContent = "Weiner";
+        </script>
+
+        <script>
+            (function (){
+                var min = 19;
+                var sec = 59;
+                document.getElementById('clock').innerHTML = min+':'+sec;
+                function diminuir(){
+                    if(sec == 0){
+                        min--;
+                        sec= 59;
+                    }
+                    if(min == 0){
+                        location.reload(); 
+                    }else{
+                        sec--;
+                        document.getElementById('clock').innerHTML = min+':'+sec;
+                    }
+                }
+                setInterval(diminuir, 10);
+                
+            })();
+        </script>
+    </body>
+</html>

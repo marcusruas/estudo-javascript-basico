@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+
+        <style>
+            .done{
+                text-decoration: line-through;
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="nameTask"/>
+        <button id="addTask">Cadastrar Tarefa</button>
+        <br/>
+        <ul>
+            <li>Estudar JavaScript</li>
+            <li>Estudar Eventos JS</li>
+            <li>Estudar BOM</li>
+        </ul>
+
+        <script>
+
+            (function(){
+                'use strict';
+                
+                var $ul = document.querySelector("ul");
+                var $lis = $ul.querySelectorAll("li");
+                var $inNameTask = document.getElementById("nameTask");
+                var $btnAddTask = document.getElementById("addTask");
+                
+                function AdicionarTarefa(){
+                    var tarefa = "<li>" + $inNameTask.value + "</li>";
+
+                    var li = document.createElement("li");
+                    var text = document.createTextNode($inNameTask.value);
+
+                    li.appendChild(text);
+                    $ul.appendChild(li);
+
+                    $inNameTask.value = "";
+                    $inNameTask.focus();
+                }
+
+                $ul.addEventListener("click", function(e){
+                    if(e.target.nodeName === "LI"){
+                        removerTarefa(e.target);
+                    }
+                })
+
+                function removerTarefa(li){
+                    if(confirm("Deseja Excluir a Tarefa?")){
+                        console.log(li.parentNode);
+                        li.parentNode.removeChild(li);
+                    }
+                }
+
+                $btnAddTask.addEventListener("click", AdicionarTarefa);
+                $inNameTask.addEventListener("keyup", function(e){
+                    //console.log(e.keyCode); //Ver qual tecla foi pressionada
+                    if(e.keyCode === 13){
+                        AdicionarTarefa();
+                    }
+                });
+                
+            })();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <form action="#" method="POST">
+            
+            <textarea rows="10" cols="50" maxlength="100" readonly>
+                Contrato de Serviço
+            </textarea>
+            <br/>
+            <label>
+                <input type="checkbox" id="chk" checked>Li e aceito os termos deste contrato.
+            </label>
+            <br/>
+            <button type="submit" id="aceito">Aceitar</button>
+        </form>
+
+        <script>
+
+            (function(){
+                'use strict';
+                
+                var $btnAceito = document.getElementById("aceito");
+                var $cbChk = document.getElementById("chk");
+
+                toggleBtn();
+                
+                function toggleBtn(){
+                    $btnAceito.disabled = !$cbChk.checked;
+                }
+
+                /*function Aceitou(){
+                    if(this.checked){
+                        $btnAceito.disabled = false;
+                    }else{
+                        $btnAceito.disabled = true;
+                    }
+                }*/
+
+                $cbChk.addEventListener("change", toggleBtn);
+
+            })();
+
+        </script>
+    </body>
+</html>

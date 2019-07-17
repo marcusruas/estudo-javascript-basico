@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+        <script>
+            //funcao literal
+            function somar(n1, n2){
+                return n1 + n2;
+            }
+
+            var divisao = function (n1, n2){
+                return n1 / n2;
+            };
+
+            divisao.teste = "Propriedade da Função";
+            //funcao anonima
+            var teste = function (f){
+                f();
+            };
+
+            //funcao anonima com name
+            var teste2 = function abacaxi(f){
+                f();
+            };
+            //function por parametro
+            teste(function alertar(){console.log("Teste");});
+
+            //escopo
+
+            var x = 0;
+
+            function mostraX(){
+                //escopo local
+                var x = 10;
+                //escopo Global
+                x = x - 5;
+                //var de escopo global criada
+                y = 100000;
+                console.log(x);
+            }
+
+            //IFEE - AUTOEXECUTÁVEIS
+            (function(){
+                'use strict';
+                //o código acima impede a criação de variáveis locais dentro de uma função;
+                //global = 0; --isso dá erro
+
+                function somar(numeros){
+                    //mostra os argumentos que foram inseridos
+                    console.log(arguments);
+                    var resultado = 0;
+                    var i = 0;
+
+                    while(arguments[i]){
+                        resultado += arguments[i];
+                        i++;
+                    }
+                    console.log('Resultado da soma é: ', resultado);
+                }
+                //somar(10,20, 50, 60);
+
+                function media(numeros){
+                    var resultado = 0;
+                    var i = 0;
+
+                    while(arguments[i]){
+                        resultado += arguments[i];
+                        i++;
+                    }
+
+                    console.log('Resultado da média é: ', resultado/i);
+                }
+
+                media(2 , 4);
+
+                //numeros.length - tamanho do array
+            })();
+
+        </script>
+    </head>
+    <body>
+        <h1>Titulo</h1>
+    </body>
+</html>

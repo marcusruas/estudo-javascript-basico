@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <script>
+            //desta forma, ao esquecer o "new", as variaveis vao pro escopo global
+            function Caneta(preco, cor){
+                //var interna, não existe fora do escopo, private
+                var cor = cor || '#000';
+                this.preco = preco || 1.5;
+                this.mudarCor = function(cor){
+                    this.cor = cor; //ou cor = cor
+                }
+                this.getCor = function(){
+                    return this.cor;
+                }
+            }
+
+            var caneta1 = new Caneta();
+        </script>
+        <script>
+            //forma certa
+            (function (){
+                'use strict';
+                function Caneta(preco, cor){
+                    //var interna, não existe fora do escopo, private
+                    var cor = cor || '#000';
+                    this.preco = preco || 1.5;
+                    this.mudarCor = function(cor){
+                        this.cor = cor; //ou cor = cor
+                    }
+                    this.getCor = function(){
+                        return this.cor;
+                    }
+                }
+    
+                var caneta1 = new Caneta();
+            })();
+            </script>
+            <script>
+
+                var pessoa1 = {
+                    nome: 'Marcus',
+                    sobrenome: 'Vinicius'
+                };
+                var pessoa2 = {
+                    nome:  'Gian',
+                    sobrenome:  'Machado'
+                };
+                var pessoa3 = {
+                    nome:  'Willian',
+                    sobrenome:  'Monteiro'
+                };
+
+                var pessoas = [
+                    pessoa1,
+                    pessoa2,
+                    pessoa3
+                ];
+
+                var index = 0;
+
+                while(pessoas[index]){
+                    console.log(pessoas[index].nome + ' ' + pessoas[index].sobrenome);
+                    index++;
+                }
+            </script>
+    </body>
+</html>

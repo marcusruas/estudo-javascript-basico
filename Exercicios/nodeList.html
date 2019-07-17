@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <button>botão 1</button>
+        <button>botão 2</button>
+        <button>botão 3</button>
+        <script>
+
+            (function(){
+                'use strict';
+                
+                var $btns = document.getElementsByTagName("button");
+
+                for(var i = 0; i < $btns.length; i++){
+                    $btns[i].addEventListener("click", Clicou);
+                }
+
+                function Clicou(){
+                    console.log(this);
+                }
+            })();
+
+        </script>
+    </body>
+</html>

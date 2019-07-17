@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Testes</title>
+    </head>
+    <body>
+        <button id="btn1">Botão 1</button>
+        <button id="btn2">Botão 2</button>
+        <button id="btn3">Botão 3</button>
+        <br/>
+        <div class="container">
+            <h1>Propagação de Eventos</h1>
+            <ul>
+                <li>lista 1</li>
+                <li>lista 2</li>
+                <li>lista 3</li>
+            </ul>
+        </div>
+
+
+        <script>
+            var $ul = document.querySelector("ul");
+            var $lis = document.querySelectorAll("li");
+            
+            document.addEventListener("click", function(e){
+                console.log("clicou no documento")
+            });
+
+            /*var x=0;
+            while($lis[x]){
+                $lis[x].addEventListener("click", function(e){
+                console.log("clicou na li ");
+                e.stopPropagation();
+                });
+                x++;
+            }*/
+
+            $ul.addEventListener("click", function(e){
+                e.stopPropagation();
+                console.log(this);
+                console.log(e.target);
+                console.log(e.currentTarget);
+                console.log("clicou na ul");
+                
+                //nome do objeto
+                console.log(e.target.nodeName)
+
+            })
+
+        </script>
+    </body>
+</html>
